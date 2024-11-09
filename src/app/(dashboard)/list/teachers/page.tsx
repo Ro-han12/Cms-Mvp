@@ -12,8 +12,8 @@ type Teacher = {
   name: string;
   email?: string;
   photo: string;
-  phone: string;
   batches: string[];
+  phone: string;
   address: string;
   linkedin?: string;
 };
@@ -74,7 +74,7 @@ const TeacherListPage = () => {
         </div>
       </td>
       <td className="hidden md:table-cell">{item.teacherId}</td>
-      {/* <td className="hidden md:table-cell">{item.batches.join(",")}</td> */}
+      <td className="hidden md:table-cell">{item.batches}</td>
       <td className="hidden md:table-cell">{item.phone}</td>
       <td className="hidden md:table-cell">{item.address}</td>
       <td className="hidden lg:table-cell">
