@@ -320,74 +320,44 @@ export const subjectsData = [
 export const classesData = [
   {
     id: 1,
-    name: "1A",
-    capacity: 20,
-    grade: 1,
-    supervisor: "Joseph Padilla",
+    batchname: "Batch A",
+    capacity: 30,
+    teacherId: "T1001",
+    Teachers: ["Mr. John Doe,", "Ms. Alice Smith"],
+    Students: ["Ram,","mini,","neha"],
+    studentId: "S1001",
+    ZoomLink: "https://zoom.us/j/1234567890"
   },
   {
     id: 2,
-    name: "2B",
-    capacity: 22,
-    grade: 2,
-    supervisor: "Blake Joseph",
+    batchname: "Batch B",
+    capacity: 25,
+    teacherId: "T1002",
+    Teachers: ["Dr. Emily White"],
+    Students: ["Sneha,", "kumar"],
+    studentId: "S2001",
+    ZoomLink: "https://zoom.us/j/2345678901"
   },
   {
     id: 3,
-    name: "3C",
+    batchname: "Batch C",
     capacity: 20,
-    grade: 3,
-    supervisor: "Tom Bennett",
+    teacherId: "T1003",
+    Teachers: ["Mr. Mark Brown"],
+    Students: ["S3001,", "S3002,", "S3003,", "S3004,"],
+    studentId: "S3001",
+    ZoomLink: "https://zoom.us/j/3456789012"
   },
   {
     id: 4,
-    name: "4B",
-    capacity: 18,
-    grade: 4,
-    supervisor: "Aaron Collins",
-  },
-  {
-    id: 5,
-    name: "5A",
-    capacity: 16,
-    grade: 5,
-    supervisor: "Iva Frank",
-  },
-  {
-    id: 5,
-    name: "5B",
-    capacity: 20,
-    grade: 5,
-    supervisor: "Leila Santos",
-  },
-  {
-    id: 7,
-    name: "7A",
-    capacity: 18,
-    grade: 7,
-    supervisor: "Carrie Walton",
-  },
-  {
-    id: 8,
-    name: "6B",
-    capacity: 22,
-    grade: 6,
-    supervisor: "Christopher Butler",
-  },
-  {
-    id: 9,
-    name: "6C",
-    capacity: 18,
-    grade: 6,
-    supervisor: "Marc Miller",
-  },
-  {
-    id: 10,
-    name: "6D",
-    capacity: 20,
-    grade: 6,
-    supervisor: "Ophelia Marsh",
-  },
+    batchname: "Batch D",
+    capacity: 28,
+    teacherId: "T1004",
+    Teachers: ["Dr. Sarah Green", "Mr. David Blue"],
+    Students: ["S4001,", "S4002,", "S4003", "S4004", "S4005", "S4006", "S4007"],
+    studentId: "S4001",
+    ZoomLink: "https://zoom.us/j/4567890123"
+  }
 ];
 
 export const lessonsData = [

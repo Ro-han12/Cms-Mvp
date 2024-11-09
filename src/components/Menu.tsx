@@ -27,7 +27,7 @@ const menuItems = [
       {
         icon: "/class.png",
         label: "Batches",
-        href: "/list/classes",
+        href: "/list/batches",
         visible: ["admin", "teacher","students"],
       },
       // {
