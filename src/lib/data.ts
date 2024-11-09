@@ -10,7 +10,7 @@ export const teachersData = [
     email: "r@doe.com",
     photo:
       "https://images.pexels.com/photos/2888150/pexels-photo-2888150.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    batches: ["1B"],
+    batches: ["batch A"],
     phone: "1234567890",
     address: "123 Main St, Anytown, USA",
     linkedin: "https://linkedin.com/in/johndoe",
@@ -24,7 +24,7 @@ export const teachersData = [
     photo:
       "https://images.pexels.com/photos/936126/pexels-photo-936126.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    batches: ["5A"],
+    batches: ["batch A"],
     address: "123 Main St, Anytown, USA",
     linkedin: "https://linkedin.com/in/janedoe",
   },
@@ -36,7 +36,7 @@ export const teachersData = [
     photo:
       "https://images.pexels.com/photos/428328/pexels-photo-428328.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    batches: [ "4B"],
+    batches: [ "batch B"],
     address: "123 Main St, Anytown, USA",
     linkedin: "https://linkedin.com/in/johndoe"
   },
@@ -48,7 +48,7 @@ export const teachersData = [
     photo:
       "https://images.pexels.com/photos/1187765/pexels-photo-1187765.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    batches: ["5A"],
+    batches: ["batch c"],
     address: "123 Main St, Anytown, USA",
     linkedin: "https://linkedin.com/in/johndoe"
   },
@@ -60,7 +60,7 @@ export const teachersData = [
     photo:
       "https://images.pexels.com/photos/1102341/pexels-photo-1102341.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    batches: [ "3C"],
+    batches: [ "batch A"],
     address: "123 Main St, Anytown, USA",
     linkedin: "https://linkedin.com/in/janesmith",
   },
@@ -72,7 +72,7 @@ export const teachersData = [
     photo:
       "https://images.pexels.com/photos/712513/pexels-photo-712513.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    batches: ["3C"],
+    batches: ["batch B"],
     address: "123 Main St, Anytown, USA",
     linkedin: "https://linkedin.com/in/johndoe"
   },
@@ -84,7 +84,7 @@ export const teachersData = [
     photo:
       "https://images.pexels.com/photos/1438081/pexels-photo-1438081.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    batches: ["5A"],
+    batches: ["batch C"],
     address: "123 Main St, Anytown, USA",
     linkedin: "https://linkedin.com/in/johndoe"
   },
@@ -96,7 +96,7 @@ export const teachersData = [
     photo:
       "https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    batches: [ "4B"],
+    batches: [ "batch A"],
     address: "123 Main St, Anytown, USA",
     linkedin: "https://linkedin.com/in/johndoe"
   },
@@ -108,7 +108,7 @@ export const teachersData = [
     photo:
       "https://images.pexels.com/photos/842980/pexels-photo-842980.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    batches: ["3C"],
+    batches: ["batch A"],
     address: "123 Main St, Anytown, USA",
     linkedin: "https://linkedin.com/in/johndoe"
   },
@@ -120,12 +120,67 @@ export const teachersData = [
     photo:
       "https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1200",
     phone: "1234567890",
-    batches: ["3C"],
+    batches: ["batch A"],
     address: "123 Main St, Anytown, USA",
     linkedin: "https://linkedin.com/in/johndoe"
   },
 ];
-
+export const studentsData = [
+  {
+    id: 1,
+    studentId: "ST1001",
+    name: "Alice Johnson",
+    email: "alice.johnson@example.com",
+    photo: "https://images.pexels.com/photos/2888150/pexels-photo-2888150.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    phone: "+1 555-1234",
+    grade: 10,
+    batches: "Batch A",
+    address: "123 Elm St, Springfield, IL"
+  },
+  {
+    id: 2,
+    studentId: "ST1002",
+    name: "Bob Smith",
+    email: "bob.smith@example.com",
+    photo: "https://images.pexels.com/photos/2888150/pexels-photo-2888150.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    phone: "+1 555-5678",
+    grade: 11,
+    batches: "Batch B",
+    address: "456 Oak St, Springfield, IL"
+  },
+  {
+    id: 3,
+    studentId: "ST1003",
+    name: "Catherine Lee",
+    email: "cath@wxample.com",
+    phone: "+1 555-8765",
+    grade: 9,
+    batches: "Batch A",
+    address: "789 Maple Ave, Springfield, IL"
+  },
+  {
+    id: 4,
+    studentId: "ST1004",
+    name: "Daniel Brown",
+    email: "daniel.brown@example.com",
+    photo: "https://images.pexels.com/photos/2888150/pexels-photo-2888150.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    phone: "+1 555-4321",
+    grade: 10,
+    batches: "Batch C",
+    address: "101 Pine Rd, Springfield, IL"
+  },
+  {
+    id: 5,
+    studentId: "ST1005",
+    name: "Emma Davis",
+    email: "emma.davis@example.com",
+    photo: "https://images.pexels.com/photos/2888150/pexels-photo-2888150.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    phone: "+1 555-3344",
+    grade: 12,
+    batches: "Batch B",
+    address: "202 Cedar Blvd, Springfield, IL"
+  }
+];
 export const parentsData = [
   {
     id: 1,
