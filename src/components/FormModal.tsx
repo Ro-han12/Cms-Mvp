@@ -10,12 +10,17 @@ const TeacherForm = dynamic(() => import("./forms/TeacherForm"), {
 const StudentForm = dynamic(() => import("./forms/StudentForm"), {
   loading: () => <h1>Loading...</h1>,
 });
+const BatchForm = dynamic(() => import("./forms/BatchForm"), {
+  loading: () => <h1>Loading...</h1>,
+});
 
 const forms: {
   [key: string]: (type: "create" | "update", data?: any) => JSX.Element;
 } = {
   teacher: (type, data) => <TeacherForm type={type} data={data} />,
-  student: (type, data) => <StudentForm type={type} data={data} />
+  student: (type, data) => <StudentForm type={type} data={data} />,
+  batch: (type, data) => <BatchForm type={type} data={data} />,
+
 };
 
 const FormModal = ({
@@ -27,9 +32,9 @@ const FormModal = ({
   table:
     | "teacher"
     | "student"
-    | "batches"
-    | "Course"
-    | "announcement";
+    | "batch"
+    // | "Course"
+    // | "announcement";
     
   type: "create" | "update" | "delete";
   data?: any;

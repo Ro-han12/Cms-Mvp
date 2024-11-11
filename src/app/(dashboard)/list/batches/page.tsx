@@ -5,7 +5,7 @@ import TableSearch from "@/components/TableSearch";
 import { classesData, role } from "@/lib/data";
 import Image from "next/image";
 
-type Class = {
+type Batch = {
   id: number;
   batchname: string;
   capacity: number;
@@ -48,7 +48,7 @@ const columns = [
 ];
 
 const ClassListPage = () => {
-  const renderRow = (item: Class) => (
+  const renderRow = (item: Batch) => (
     <tr
       key={item.id}
       className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight"
@@ -62,8 +62,8 @@ const ClassListPage = () => {
         <div className="flex items-center gap-2">
           {role === "admin" && (
             <>
-              <FormModal table="batches" type="update" data={item} />
-              <FormModal table="batches" type="delete" id={item.id} />
+              <FormModal table="batch" type="update" data={item} />
+              <FormModal table="batch" type="delete" id={item.id} />
             </>
           )}
         </div>
@@ -85,7 +85,7 @@ const ClassListPage = () => {
             <button className="w-8 h-8 flex items-center justify-center rounded-full bg-lamaYellow">
               <Image src="/sort.png" alt="" width={14} height={14} />
             </button>
-            {role === "admin" && <FormModal table="batches" type="create" />}
+            {role === "admin" && <FormModal table="batch" type="create" />}
           </div>
         </div>
       </div>
