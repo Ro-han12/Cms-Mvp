@@ -17,19 +17,17 @@ const schema = z.object({
     .min(8, { message: "Password must be at least 8 characters long!" }),
   firstName: z.string().min(1, { message: "First name is required!" }),
   lastName: z.string().min(1, { message: "Last name is required!" }),
-  Address: z.string().min(1, { message: "City/Country you reside in" }),
   phone: z.string().min(1, { message: "Phone is required!" }),
+  address: z.string().min(1, { message: "Address is required!" }),
+  grade: z.string().min(1, { message: "Grade you studying in!" }),
+  birthday: z.date({ message: "Birthday is required!" }),
   sex: z.enum(["male", "female"], { message: "Sex is required!" }),
   img: z.instanceof(File, { message: "Image is required" }),
-  linkedin: z
-    .string()
-    .url({ message: "Please enter a valid LinkedIn URL!" })
-    .optional(),
 });
 
 type Inputs = z.infer<typeof schema>;
 
-const TeacherForm = ({
+const StudentForm = ({
   type,
   data,
 }: {
@@ -50,7 +48,7 @@ const TeacherForm = ({
 
   return (
     <form className="flex flex-col gap-8" onSubmit={onSubmit}>
-      <h1 className="text-xl font-semibold">Create a new teacher</h1>
+      <h1 className="text-xl font-semibold">Create a new student</h1>
       <span className="text-xs text-gray-400 font-medium">
         Authentication Information
       </span>
@@ -105,17 +103,25 @@ const TeacherForm = ({
         />
         <InputField
           label="Address"
-          name="Address"
-          defaultValue={data?.Address}
+          name="address"
+          defaultValue={data?.address}
           register={register}
-          error={errors.Address}
+          error={errors.address}
         />
         <InputField
-          label="LinkedIn URL"
-          name="linkedin"
-          defaultValue={data?.linkedin}
+          label="Grade"
+          name="grade"
+          defaultValue={data?.grade}
           register={register}
-          error={errors.linkedin}
+          error={errors.grade}
+        />
+        <InputField
+          label="Birthday"
+          name="birthday"
+          defaultValue={data?.birthday}
+          register={register}
+          error={errors.birthday}
+          type="date"
         />
         <div className="flex flex-col gap-2 w-full md:w-1/4">
           <label className="text-xs text-gray-500">Sex</label>
@@ -156,4 +162,4 @@ const TeacherForm = ({
   );
 };
 
-export default TeacherForm;
+export default StudentForm;

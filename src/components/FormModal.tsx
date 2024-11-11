@@ -7,15 +7,15 @@ import { useState } from "react";
 const TeacherForm = dynamic(() => import("./forms/TeacherForm"), {
   loading: () => <h1>Loading...</h1>,
 });
-// const StudentForm = dynamic(() => import("./forms/StudentForm"), {
-//   loading: () => <h1>Loading...</h1>,
-// });
+const StudentForm = dynamic(() => import("./forms/StudentForm"), {
+  loading: () => <h1>Loading...</h1>,
+});
 
 const forms: {
   [key: string]: (type: "create" | "update", data?: any) => JSX.Element;
 } = {
   teacher: (type, data) => <TeacherForm type={type} data={data} />,
-//   student: (type, data) => <StudentForm type={type} data={data} />
+  student: (type, data) => <StudentForm type={type} data={data} />
 };
 
 const FormModal = ({
@@ -28,7 +28,9 @@ const FormModal = ({
     | "teacher"
     | "student"
     | "batches"
+    | "Course"
     | "announcement";
+    
   type: "create" | "update" | "delete";
   data?: any;
   id?: number;
