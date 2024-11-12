@@ -11,61 +11,51 @@ async function main() {
     },
   });
 
-  // Create Users
-  const userTeacher = await prisma.user.create({
-    data: {
-      username: 'teacher_user',
-    },
-  });
-
-  const userStudent = await prisma.user.create({
-    data: {
-      username: 'student_user',
-    },
-  });
-
   // Create a Teacher
   const teacher = await prisma.teacher.create({
     data: {
-      userId: userTeacher.id,
-      firstName: 'John',
-      lastName: 'Doe',
-      sex: 'MALE',
-      phoneNumber: '1234567890',
+      teacherId: 'T001',
+      name: 'John Doe',
+      email: 'john.doe@example.com',
+      photo: 'https://example.com/photo.jpg',
+      phone: '1234567890',
       address: '123 Teacher St.',
+      linkedin: 'https://linkedin.com/in/johndoe',
     },
   });
 
   // Create a Student
   const student = await prisma.student.create({
     data: {
-      userId: userStudent.id,
-      grade: '10',
-      email: 'student@example.com',
-      phoneNumber: '0987654321',
-      address: '456 Student Rd.',
-      sex: 'FEMALE',
+      studentId: 'S001',
+      name: 'Jane Smith',
+      email: 'jane.smith@example.com',
+      photo: 'https://example.com/photo2.jpg',
+      phone: '0987654321',
+      grade: 10,
+      address: '456 Student Ave.',
     },
   });
 
-  // Create a Batch and link it to the teacher and student
+  // Create a Batch and associate it with the teacher and student
   const batch = await prisma.batch.create({
     data: {
-      name: 'Math 101',
+      batchname: 'Math 101',
+      capacity: 30,
       teacherId: teacher.id,
+      zoomLink: 'https://zoom.us/j/123456789',
       students: {
         connect: [{ id: student.id }],
       },
     },
   });
 
-  // Create an Announcement related to the Batch
+  // Create an Announcement
   const announcement = await prisma.announcement.create({
     data: {
-      title: 'Exam Announcement',
-      description: 'There will be an exam on Monday.',
-      date: new Date(),
-      batchId: batch.id,
+      title: 'New Course Launch',
+      description: 'We are excited to announce the launch of a new course.',
+      date: new Date(), // Current date
     },
   });
 
