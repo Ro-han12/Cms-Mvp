@@ -1,6 +1,6 @@
 const Table = ({
     columns,
-    renderRow,
+    renderRow, 
     data,
   }: {
     columns: { header: string; accessor: string; className?: string }[];

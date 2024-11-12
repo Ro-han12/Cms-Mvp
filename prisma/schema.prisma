@@ -1,0 +1,85 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String   @id @default(uuid())
+  username  String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Teacher {
+  id           String   @id @default(uuid())
+  userId       String   @unique
+  firstName    String
+  lastName     String
+  sex          UserSex
+  phoneNumber  String
+  address      String
+  user         User     @relation(fields: [userId], references: [id]) // Links to User profile
+  batches      Batch[]  
+}
+
+model Student {
+  id           String   @id @default(uuid())
+  userId       String   @unique
+  grade        String
+  email        String
+  phoneNumber  String
+  address      String
+  sex          UserSex
+  user         User     @relation(fields: [userId], references: [id]) // Links to User profile
+  batches      Batch[]  @relation("StudentBatches") // A student can be part of multiple batches
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Batch {
+  id          String        @id @default(uuid())
+  name        String
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  teacher     Teacher       @relation(fields: [teacherId], references: [id]) // Each batch is managed by one teacher
+  teacherId   String
+  students    Student[]     @relation("StudentBatches") // Each batch can contain multiple students
+  announcements Announcement[] // Each batch can have multiple announcements
+}
+
+model Announcement {
+  id          String    @id @default(uuid())
+  title       String
+  description String
+  date        DateTime
+  batchId     String?
+  batch       Batch?    @relation(fields: [batchId], references: [id])
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model User {
+  id         String   @id @default(uuid())
+  username   String   @unique
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  teacher    Teacher?
+  student    Student?
+}
+
+enum UserSex {
+  MALE
+  FEMALE
+}
+
+enum Day {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+}
