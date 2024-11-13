@@ -7,6 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import prisma from "@/lib/prisma";
 import { Prisma, Batch, Teacher  } from "@prisma/client"
+import { ITEM_PER_PAGE } from "@/lib/settings";
 
 // type Teacher = {
 //   id: number;
@@ -104,12 +105,24 @@ const renderRow = (item: TeacherList) => (
     </td>
   </tr>
 );
-const TeacherListPage = async () => {
-  const data =  await prisma.teacher.findMany({
-    include: {
-      batches: true
-    }
-  })
+const TeacherListPage = async ({
+  searchParams, }: {
+  searchParams:{ [key:string]:string | undefined};
+}) => {
+  const { page, ...queryParams } = searchParams;
+
+
+  const p = page ? parseInt(page) : 1;
+  const [data, count] = await prisma.$transaction([
+    prisma.teacher.findMany({
+      include: {
+        batches: true,
+      },
+      take: ITEM_PER_PAGE,
+      skip: ITEM_PER_PAGE * (p - 1),
+    }),
+    prisma.teacher.count(),
+  ]);
 
 
   return (
@@ -135,7 +148,7 @@ const TeacherListPage = async () => {
       {/* LIST */}
       <Table columns={columns} renderRow={renderRow} data={data} />
       {/* PAGINATION */}
-      <Pagination />
+      <Pagination page={p} count={count} />
     </div>
   );
 };
