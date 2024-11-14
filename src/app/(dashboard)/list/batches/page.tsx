@@ -40,10 +40,14 @@ const columns = [
     accessor: "zoomLink",
     className: "hidden md:table-cell",
   },
-  {
-    header: "Actions",
-    accessor: "action",
-  },
+  ...(role === "admin"
+    ? [
+        {
+          header: "Actions",
+          accessor: "action",
+        },
+      ]
+    : []),
 ];
 
 // Function to render each row with the relevant details

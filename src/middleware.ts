@@ -8,20 +8,21 @@ const matchers = Object.keys(routeAccessMap).map((route) => ({
 }));
 
 console.log(matchers);
-export default clerkMiddleware()
-// export default clerkMiddleware((auth, req) => {
-//   // if (isProtectedRoute(req)) auth().protect()
 
-//   const { sessionClaims } = auth();
+export default clerkMiddleware(async (auth, req) => {
+  // Await the Clerk auth call to ensure session data is available
+  const authObject = await auth(); // Await the promise here
 
-//   const role = (sessionClaims?.metadata as { role?: string })?.role;
+  // Access sessionClaims once the promise resolves
+  const { sessionClaims } = authObject;
+  const role = (sessionClaims?.metadata as { role?: string })?.role;
 
-//   for (const { matcher, allowedRoles } of matchers) {
-//     if (matcher(req) && !allowedRoles.includes(role!)) {
-//       return NextResponse.redirect(new URL(`/${role}`, req.url));
-//     }
-//   }
-// });
+  for (const { matcher, allowedRoles } of matchers) {
+    if (matcher(req) && !allowedRoles.includes(role!)) {
+      return NextResponse.redirect(new URL(`/${role}`, req.url));
+    }
+  }
+});
 
 export const config = {
   matcher: [

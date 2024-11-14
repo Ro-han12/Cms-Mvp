@@ -19,7 +19,14 @@ const columns = [
   { header: "Phone", accessor: "phone", className: "hidden lg:table-cell" },
   { header: "Batch", accessor: "batches", className: "hidden md:table-cell" },
   { header: "Address", accessor: "address", className: "hidden lg:table-cell" },
-  { header: "Actions", accessor: "action" },
+  ...(role === "admin"
+    ? [
+        {
+          header: "Actions",
+          accessor: "action",
+        },
+      ]
+    : []),
 ];
 
 const renderRow = (item: StudentList) => (
