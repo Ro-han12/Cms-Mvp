@@ -37,7 +37,6 @@ const FormModal = ({
     | "teacher"
     | "student"
     | "batch"
-    // | "Course"
     | "Announcement";
     
   type: "create" | "update" | "delete";
