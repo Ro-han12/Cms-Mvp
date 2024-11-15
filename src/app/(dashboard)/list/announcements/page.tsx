@@ -1,4 +1,5 @@
 // import FormContainer from "@/components/FormContainer";
+import FormModal from "@/components/FormModal";
 import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
@@ -111,6 +112,7 @@ const AnnouncementListPage = async ({
             {/* {role === "admin" && (
               <FormContainer table="announcement" type="create" />
             )} */}
+            {role === "admin" && <FormModal table="Announcement" type="create" />}
           </div>
         </div>
       </div>

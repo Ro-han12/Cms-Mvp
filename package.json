@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@clerk/elements": "^0.18.5",
-    "@clerk/nextjs": "^6.3.2",
+    "@clerk/nextjs": "^6.3.4",
     "@hookform/resolvers": "^3.9.1",
     "@prisma/client": "^5.22.0",
     "moment": "^2.30.1",
